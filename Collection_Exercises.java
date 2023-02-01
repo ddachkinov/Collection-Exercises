@@ -3,6 +3,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Collection_Exercises {
     public static void main (String[] args){
@@ -46,7 +47,7 @@ public class Collection_Exercises {
 
         //search an element in an array list.
 
-        Boolean isRedOnTheList = ColorList.contains("Red");
+        boolean isRedOnTheList = ColorList.contains("Red");
         if(isRedOnTheList) {
             System.out.println("Red is on the list");
         } else {
@@ -54,16 +55,21 @@ public class Collection_Exercises {
         }
 
         // copy one array list into another and print it.
-        List<String> BoxOfColorsList = new ArrayList<String>();
-
-        BoxOfColorsList.add("Purple");
-        BoxOfColorsList.add("Beige");
-        BoxOfColorsList.add("Grey");
-        BoxOfColorsList.add("Pink");
-        BoxOfColorsList.add("Yellow");
-
+        List<String> BoxOfColorsList = new ArrayList<>(List.of("Purple", "Beige", "Grey", "Pink", "White", "Salmon", "Brick", "RoseGold", "Cyan"));
         Collections.copy(BoxOfColorsList, ColorList);
         System.out.println(BoxOfColorsList);
+//Create an integer list
+        List<Integer> colorBoxNumbers = new ArrayList<>(List.of(1, 2, 3, 4, 5, 7, 8, 9));
+
+// Print the original list
+        System.out.println("Original List : \n" + colorBoxNumbers);
+
+//Shuffle the colorBoxNumbers\' list
+        Collections.shuffle(colorBoxNumbers, new Random());
+
+//Print the shuffled list
+        System.out.println("Shuffled list : \n" + colorBoxNumbers);
+
     }
 
 }
