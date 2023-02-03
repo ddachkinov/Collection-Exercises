@@ -1,11 +1,6 @@
-import org.w3c.dom.ls.LSOutput;
+import java.util.*;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
-
-public class Collection_Exercises {
+public class collectionExercises {
     public static void main (String[] args){
 
         List<String> ColorList = new ArrayList<String>();
@@ -55,9 +50,9 @@ public class Collection_Exercises {
         }
 
         // copy one array list into another and print it.
-        List<String> BoxOfColorsList = new ArrayList<>(List.of("Purple", "Beige", "Grey", "Pink", "White", "Salmon", "Brick", "RoseGold", "Cyan"));
-        Collections.copy(BoxOfColorsList, ColorList);
-        System.out.println(BoxOfColorsList);
+        List<String> boxOfColorsList = new ArrayList<>(List.of("Purple", "Beige", "Grey", "Pink", "White", "Salmon", "Brick", "RoseGold", "Cyan"));
+        Collections.copy(boxOfColorsList, ColorList);
+        System.out.println(boxOfColorsList);
 //Create an integer list
         List<Integer> colorBoxNumbers = new ArrayList<>(List.of(1, 2, 3, 4, 5, 7, 8, 9));
 
@@ -70,6 +65,50 @@ public class Collection_Exercises {
 //Print the shuffled list
         System.out.println("Shuffled list : \n" + colorBoxNumbers);
 
+//Ensure list capacity
+        ((ArrayList<Integer>) colorBoxNumbers).ensureCapacity(12);
+
+//Add 3 numbers, sort and iterate
+        colorBoxNumbers.add(17);
+        colorBoxNumbers.add(32);
+        colorBoxNumbers.add(13);
+        Collections.sort(colorBoxNumbers);
+
+        int cbnSize = colorBoxNumbers.size();
+        for (int i=0; i < cbnSize; i++){
+            System.out.println(colorBoxNumbers.get(i));
+        }
+
+//Create a linked List
+        LinkedList<String> orderOfColors = new LinkedList<>();
+
+        orderOfColors.add("red");
+        orderOfColors.add("green");
+        orderOfColors.add("blue");
+        orderOfColors.add("orange");
+        orderOfColors.add("white");
+
+//Print the orderOfColors linked list
+        System.out.println("The Order of colors is:\n" + orderOfColors);
+
+//Iterate with enhanced for loop
+        for (String color : orderOfColors){
+            System.out.println(color);
+        }
+
+
+        System.out.println("\nIterate the colors but start from blue");
+        Integer colorBlueIndex = orderOfColors.indexOf("blue");
+        Iterator colorPosition = orderOfColors.listIterator(colorBlueIndex);
+
+        while (colorPosition.hasNext()){
+            System.out.println(colorPosition.next());
+        }
+
+        System.out.println("\nAdd a grey color at position 0...");
+        orderOfColors.addFirst("grey");
+        System.out.println("\nThe linked list orderOfColors contains: ");
+                orderOfColors.forEach(color -> System.out.println(color));
     }
 
 }
